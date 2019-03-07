@@ -1,0 +1,24 @@
+<div ng-repeat="topic in vm.topics" layout="row" layout-align="start center" layout-margin layout-wrap>
+    <md-button class="md-raised md-primary" aria-label="select topic button" md-no-ink ng-click="vm.setTopic(topic)">{{ topic.category }}</md-button>
+</div>
+
+<span class="md-headline" style="text-transform: capitalize;">Quiz Category: {{ vm.activeTopic.category }}</span>
+
+<div ng-repeat="item in vm.quizList" layout-padding>
+    <div>
+        <span class="md-title"> {{ item.question_text }}</span>
+    </div>
+    <div style="width: 300px;">
+        <md-checkbox class="md-primary" aria-label="answer checkbox" ng-model="item.answer[$index]" ng-repeat="(key, value) in item.answer_text" layout="row" layout-align="space-between center" flex>
+            <span flex style="width: 150px; margin-right: 20px;">{{ key }}</span>
+            <span flex></span>
+            <span class="md-body-2" style="color: green;" ng-show="item.answer[$index] && value == 1" flex>
+                Correct!
+            </span>
+            <span class="md-body-2" style="color: red;" ng-show="item.answer[$index] && value == 0" flex>
+            Incorrect
+        </span>
+        </md-checkbox>
+    </div>
+
+</div>

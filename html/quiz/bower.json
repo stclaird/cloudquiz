@@ -1,0 +1,23 @@
+{
+    "name": "d_amazon",
+    "authors": [
+        "Keshav OS <keshav.os@vivoinspire.com>"
+    ],
+    "description": "Quiz app with angular",
+    "main": "",
+    "license": "MIT",
+    "homepage": "",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies":
+    {
+        "angular-material": "1.1.5",
+        "angular-ui-router": "0.3.2"
+    }
+}

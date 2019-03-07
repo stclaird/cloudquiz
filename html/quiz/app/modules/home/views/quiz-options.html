@@ -1,0 +1,12 @@
+<div layout="row" layout-align="center center">
+    <span class="md-title">Please select a topic</span>
+</div>
+<hr>
+<div ng-repeat="topic in vm.topics" layout="column" layout-align="start center" layout-margin layout-wrap>
+    <div layout="row" layout-align="start center">
+        <span>{{ ($index + 1) }}.</span>
+        <md-button class="md-raised md-primary" aria-label="select topic button" md-no-ink ui-sref="home.quiz.questions({'topic': topic.category})">
+            {{ topic.category }}
+        </md-button>
+    </div>
+</div>

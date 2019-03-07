@@ -1,0 +1,48 @@
+<div layout="row" layout-align="space-around center">
+    <span class="md-title">Topic: {{ vm.topic }}</span>
+    <span flex></span>
+    <a ui-sref="home.quiz.select">Back</a>
+</div>
+<hr>
+<!-- <form name="quizForm"> -->
+    <div ng-repeat="item in vm.quizList" layout-padding>
+      <form name="quizForm">
+        <div>
+            <span class="md-title"> {{ item.question_text }}</span>
+        </div>
+        <br>
+        <div>
+            <!-- <md-radio-group aria-label="answer option" ng-model="questionModel">
+                <md-radio-button value="{{ key }}" ng-repeat="(key, value) in item.answer_text" class="md-primary">
+                    <span>{{ key }}</span>
+                    <span class="md-body-2" style="color: green;" ng-show="value == 1 && quizForm.$submitted" flex>
+                        Correct!
+                    </span>
+                    <span class="md-body-2" style="color: red;" ng-show="value == 0 && quizForm.$submitted" flex>
+                        Incorrect
+                    </span>
+                </md-radio-button>
+            </md-radio-group> -->
+            <md-checkbox class="md-primary" aria-label="answer checkbox" ng-model="item.answer[$index]" ng-repeat="(key, value) in item.answer_text" layout="row" layout-align="space-between center" flex>
+                <span flex style="width: 150px; margin-right: 20px;">{{ key }}</span>
+                <span flex></span>
+                <span class="md-body-2" style="color: green;" ng-show="value == 1 && quizForm.$submitted" flex>
+                    Correct!
+                </span>
+                <span class="md-body-2" style="color: red;" ng-show="value == 0 && quizForm.$submitted" flex>
+                    Incorrect
+                </span>
+            </md-checkbox>
+        </div>
+                <md-button type="submit" class="md-raised md-primary" aria-label="submit" md-no-ink="true">Submit</md-button>
+                <md-button type="button" class="md-raised md-warn" aria-label="reset" md-no-ink="true" ng-click="quizForm.$setPristine();">Reset</md-button>
+      </form>
+      <div>
+              <span class="md-caption">Question ID:{{ item.id }}, Date Added: {{ item.date_added }}</span>
+      </div>
+          <hr>
+    </div>
+
+    <div layout="row" layout-align="start center">
+    </div>
+<!-- </form> -->
